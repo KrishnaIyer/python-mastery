@@ -72,6 +72,32 @@ This tags the value in `uv.lock`, which can be checked in to version control.
 
 [Configure](https://docs.astral.sh/ruff/configuration/) it based on the requirements.
 
+Rules -> https://docs.astral.sh/ruff/rules/
+
+Rules can be set in the `pyproject.toml` or a separate `ruff.toml`. The latter may be preferable as ruff rules can be long.
+
+Run the linter.
+
+```bash
+$ uvx ruff check
+```
+
+#### Editor Support
+
+### 2. Type Checker
+
+Since Python is a dynamically typed language, it's critical to have a type checker from the start. [`mypy`](https://mypy.readthedocs.io/en/stable/getting_started.html#installing-and-running-mypy) is a good starting point.
+
+```bash
+$ uv add mypy
+```
+
+Run
+
+```bash
+$ uvx mypy .
+```
+
 ## Appendix
 
 ### Installing Global Python (not recommended)
