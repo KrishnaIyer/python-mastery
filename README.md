@@ -79,7 +79,7 @@ Rules can be set in the `pyproject.toml` or a separate `ruff.toml`. The latter m
 Run the linter.
 
 ```bash
-$ uvx ruff check
+$ uv run ruff check
 ```
 
 #### Editor Support
@@ -95,7 +95,60 @@ $ uv add mypy
 Run
 
 ```bash
-$ uvx mypy .
+$ uv run mypy .
+```
+
+Test files can be skipped using the following in `pyproject.toml`.
+
+```toml
+[tool.mypy]
+exclude = [
+    '.*_test\.py$',
+]
+```
+
+### 3. Testing
+
+#### Testing framework
+
+Install [Pytest](https://docs.pytest.org/en/stable/).
+
+```bash
+$ uv add pytest
+```
+
+Write a test file `test_<file>.py` or `<file>_test.py`. Add test cases here. Run using the following
+
+```bash
+$ uv run pytest
+```
+
+Use the `-q` to only print the summary.
+
+#### Code Coverage
+
+Code coverage is via the [Coverage tool](https://coverage.readthedocs.io/en/7.11.0/).
+
+```bash
+$ uv add coverage
+```
+
+Run the coverage tool.
+
+```bash
+$ uv run coverage run -m pytest
+```
+
+Coverage report
+
+```bash
+$ uv run coverage report -m
+```
+
+Or for a fancy HTML report.
+
+```bash
+$ uv run coverage html
 ```
 
 ## Appendix

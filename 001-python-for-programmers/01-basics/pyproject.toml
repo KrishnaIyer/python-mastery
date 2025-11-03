@@ -5,6 +5,25 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "coverage>=7.11.0",
     "mypy>=1.18.2",
+    "pytest>=8.4.2",
     "ruff>=0.14.3",
 ]
+
+[tool.mypy]
+exclude = [
+    '.*_test\.py$',
+]
+
+# Ruff linting
+[tool.ruff]
+line-length = 120
+target-version = "py314"
+ignore = ["E501"]  # Line too long (handled by formatter)
+
+# Ruff formatting
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
